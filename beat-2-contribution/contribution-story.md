@@ -29,7 +29,7 @@ These entries are organized by course unit. All work recorded here was completed
 
 **Unit 8: A review playbook and a wait decision from the PR monitor**
 
-2026-11-05: I installed the PR monitor and filled all four playbook sections from the repo's rules and a five-PR outside-contributor review sample, choosing 21 quiet days before one nudge. The sample's median first human response was 8.85 days, with a 1.75–33.70 day range. The console called its template a polite-nudge form, which was confusing, but the actual MOVE was “No nudge yet; wait note” for my newly opened PR with no comments or reviews and one pending check. I compared the draft with the live thread and my threshold, kept it local, and posted nothing; no threshold change was needed because the actual decision followed the playbook.
+2026-11-05: I installed the PR monitor and filled all four playbook sections from the repo's rules and a five-PR outside-contributor review sample, choosing 21 quiet days before one nudge. The sample's median first human response was 8.85 days, with a 1.75–33.70 day range. The console called its template a polite-nudge form, which was confusing, but the actual MOVE was “No nudge yet; wait note” for my newly opened PR with no comments or reviews and one pending check. I compared the draft with the live thread and my threshold, kept it local, and reran the monitor after all five CI checks passed; it again produced a wait note, so I posted nothing and kept the threshold.
 
 ---
 
@@ -192,7 +192,7 @@ npm run lint      exit 0, no diagnostics
 npm run style     All matched files use the correct format., exit 0
 ```
 
-The clean baseline had 98 passing tests after building first. No checks were waived. The regression exercises the same iterator path used by TimeAxis; browser layout, the original JSFiddle, and a new design for snapping or initial alignment were not verified or claimed. Hidden-date jumps retain their existing semantics.
+The clean baseline had 98 passing tests after building first. No checks were waived. After opening the PR, the upstream CircleCI prepare, build, lint, test, and examples checks also all passed. The regression exercises the same iterator path used by TimeAxis; browser layout, the original JSFiddle, and a new design for snapping or initial alignment were not verified or claimed. Hidden-date jumps retain their existing semantics.
 
 **Toolkit**
 
@@ -215,7 +215,7 @@ All entries below record work done on **2026-11-05**; the Unit 5–8 Toolkit ent
 - Plan-check initially refused because I ran it before the claim existed publicly. After posting the claim, I corrected inherited live-mode procedure assumptions and obtained accept. The PR checker also needed its sandbox Repo-line, main-branch, and docs-only contribution-guide assumptions updated for a public repo targeting master.
 - Added the regression tests before the source change: 19 passed and 3 failed. Added the autoScale guard, the option docs, and the example: 22 focused tests and 108 full-suite tests passed, along with build, lint, and formatting.
 - Committed the four-file change as [0e8403e](https://github.com/oasis-pandey/vis-timeline/commit/0e8403e), on fix/1030-exact-millisecond-steps. The commit hook also ran the project's formatter and linter on the staged files. No unrelated cleanup, generated bundles, plans, reports, or local memory entered the diff.
-- Opened [PR #2150](https://github.com/visjs/vis-timeline/pull/2150) through Claude Code after explicit approval. The ship-gate hook honored the final manual pass and the voice guard passed; I verified the upstream target, author, commit, and four-file diff. Ran the monitor, read its wait note against the live state, and kept the draft off the thread.
+- Opened [PR #2150](https://github.com/visjs/vis-timeline/pull/2150) through Claude Code after explicit approval. The ship-gate hook honored the final manual pass and the voice guard passed; I verified the upstream target, author, commit, and four-file diff. Ran the monitor, read its wait note against the live state, then reran after all five CircleCI checks passed; both drafts stayed off the thread.
 - Sampled five merged outside-contributor PRs for the monitor: waits were 7.31, 33.70, 8.85, 1.75, and 15.02 days to the first human maintainer response. Wrote a 21-day, single-nudge playbook; the course deadline does not shorten it.
 
 **Toolkit**
@@ -237,7 +237,7 @@ The PR goes from oasis-pandey:fix/1030-exact-millisecond-steps into visjs/vis-ti
 
 **Maintainer Feedback:**
 
-- 2026-11-05: none yet. The live PR has no comments or reviews. The PR monitor recorded one pending CircleCI prepare status; local checks passed before the PR opened.
+- 2026-11-05: none yet. The live PR has no comments or reviews. The first monitor run recorded a pending CircleCI prepare status; subsequently all five upstream CircleCI checks passed: prepare, build, lint, test, and examples. Local checks had passed before the PR opened.
 
 **Status:** Awaiting review
 
